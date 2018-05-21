@@ -1,1 +1,1 @@
-An Applian plugin with date and time functions
+An Appian plugin containing date and time utility functions

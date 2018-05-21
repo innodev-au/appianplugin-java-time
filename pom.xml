@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>innodev.appianplugin.functions.time</groupId>
+	<artifactId>innodev-appianplugin-time</artifactId>
+	<version>1.0.0</version>
+	<name>Appian Simple Date Util</name>
+
+	<properties>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.java</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>appian-plugin.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.0.2</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>
+								${project.build.directory}/classes/META-INF/lib
+							</outputDirectory>
+							<excludeArtifactIds>appian-plugin-sdk</excludeArtifactIds>
+							<execludeTransitive>true</execludeTransitive>
+							<includeScope>compile</includeScope>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+		</plugins>
+	</build>
+
+	<!-- Note: if building from source, you'll need to add Appian's SDK JAR 
+		as it's not in source control here. -->
+	<dependencies>
+		<dependency>
+			<groupId>appian</groupId>
+			<artifactId>appian-plugin-sdk</artifactId>
+			<version>17</version>
+			<systemPath>${project.basedir}/lib/internalRepoOnly/appian-plug-in-sdk.jar</systemPath>
+			<scope>system</scope>
+		</dependency>
+
+		<!-- used by plugin SDK -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>24.0-jre</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.threeten</groupId>
+			<artifactId>threetenbp</artifactId>
+			<version>1.3.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+
+	<organization>
+		<name>Innodev</name>
+		<url>https://www.innodev.com.au</url>
+	</organization>
+</project>
