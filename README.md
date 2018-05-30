@@ -27,7 +27,7 @@ Java Time (JSR-310) was introduced in Java 8. However, this implementation runs 
 
 Another plugin, The _Date and Time Utilities_ plugin, also provides date parsing and validation functions. However, the functionality in this project differs in that:
 
-- This project uses Java Time conepts and behaviour
+- This project uses Java Time terminology and behaviour
 - In this project, an arbitrary date format can be specified; the other plugin uses a fixed set of patterns.
 - The return value of _time_parseLocalDate_ is a local date (i.e., an Appian _Date_); the other plugin returns an instant (i.e. an Appian _Date and Time_).
 - In this project, if the parse fails, an exceptions is thrown. This is by design. If you're unsure whether the date is valid, call _time_isValidLocalDate_ before.
