@@ -17,7 +17,7 @@ Functions are prefixed with _time__ as a rudimentary way to avoid names clashing
 
 ## Version
 
-The implementation is estable, hence the version number is 1.0.0.
+The implementation is stable, hence the version number is 1.0.0.
 
 This plugin has been tested in Appian 18.1 and 17.4 but will most likely work in newer as well as older Appian versions.
 
